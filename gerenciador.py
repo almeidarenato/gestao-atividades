@@ -6,6 +6,13 @@ def adicionar_atividade(lista_de_atividades,nome_atividade):
     print(f"Atividade {nome_atividade} adicionada com sucesso")
     return
 
+def ver_atividades(lista_de_atividades):
+    print("\n Lista de Tarefas")
+    for indice,atividade in enumerate(lista_de_atividades, start=1):
+        status = "✓" if atividade["completada"] else " "
+        nome_atividade = atividade["atividade"]
+        print(f"{indice}- [{status}] {nome_atividade}")
+
 lista_de_atividades = []
 
 while True: 
@@ -21,7 +28,9 @@ while True:
     if escolha == "1":
         nome_atividade = input("Digite o nome da Atividade para adiciona-la:")
         adicionar_atividade(nome_atividade=nome_atividade,lista_de_atividades=lista_de_atividades)
-    if escolha =="6":
+    elif escolha == "2":
+        ver_atividades(lista_de_atividades)
+    elif escolha =="6":
         break
     
 
