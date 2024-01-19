@@ -37,19 +37,18 @@ while True:
     print("6. Sair")
 
     escolha = input("Digite a sua opção: ")
-    if escolha == "1":
-        nome_atividade = input("Digite o nome da Atividade para adiciona-la:")
-        adicionar_atividade(nome_atividade=nome_atividade,lista_de_atividades=lista_de_atividades)
-    elif escolha == "2":
-        ver_atividades(lista_de_atividades)
-    elif escolha =="3":
-        ver_atividades(lista_de_atividades)
-        indice_atividade = input("Digite o número da atividade: ")
-        novo_nome_atividade = input("Digite o novo nome da atividade: ")
-        atualizar_atividade(lista_de_atividades=lista_de_atividades,indice_atividade=indice_atividade,novo_nome_atividade=novo_nome_atividade)
-    elif escolha =="6":
-        break
-    
-
+    match escolha: 
+         case "1":
+              nome_atividade = input("Digite o nome da Atividade para adiciona-la:")
+              adicionar_atividade(nome_atividade=nome_atividade,lista_de_atividades=lista_de_atividades)
+         case  "2":
+              ver_atividades(lista_de_atividades)
+         case "3":
+              ver_atividades(lista_de_atividades)
+              indice_atividade = input("Digite o número da atividade: ")
+              novo_nome_atividade = input("Digite o novo nome da atividade: ")
+              atualizar_atividade(lista_de_atividades=lista_de_atividades,indice_atividade=indice_atividade,novo_nome_atividade=novo_nome_atividade)
+         case "6":
+              break
 
 print("Programa finalizado")
