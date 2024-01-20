@@ -28,6 +28,14 @@ def completar_atividade(lista_de_atividades,indice_atividade):
      print(f"Atividade {indice_atividade} marcada como completada")
      return
 
+def deletar_atividades_completadas(lista_de_atividades):
+     for atividade in lista_de_atividades:
+          if atividade["completada"] == True:
+               lista_de_atividades.remove(atividade)
+     print('Atividades completadas foram deletadas')
+     ver_atividades(lista_de_atividades)
+     return
+
 lista_de_atividades = []
 
 while True: 
@@ -44,7 +52,7 @@ while True:
          case "1":
               nome_atividade = input("Digite o nome da Atividade para adiciona-la:")
               adicionar_atividade(nome_atividade=nome_atividade,lista_de_atividades=lista_de_atividades)
-         case  "2":
+         case "2":
               ver_atividades(lista_de_atividades)
          case "3":
               ver_atividades(lista_de_atividades)
@@ -56,8 +64,7 @@ while True:
                indice_atividade = input("Digite o número da atividade que deseja completar: ")
                completar_atividade(indice_atividade=indice_atividade,lista_de_atividades=lista_de_atividades)
          case "5":
-              ver_atividades(lista_de_atividades)
-              indice_atividade = input("Digite o número da atividade que deseja deletar: ")
+              deletar_atividades_completadas(lista_de_atividades)
          case "6":
               break
 
