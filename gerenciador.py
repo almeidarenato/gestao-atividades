@@ -1,6 +1,4 @@
 def adicionar_atividade(lista_de_atividades,nome_atividade):
-    # atividade = nome da atividade
-    # completada = indica de a atividade foi finalizada
     atividade = {"atividade":nome_atividade,"completada": False}
     lista_de_atividades.append(atividade)
     print(f"Atividade {nome_atividade} adicionada com sucesso")
@@ -12,7 +10,7 @@ def ver_atividades(lista_de_atividades):
         status = "✓" if atividade["completada"] else " "
         nome_atividade = atividade["atividade"]
         print(f"{indice}- [{status}] {nome_atividade}")
-        return
+    return
 
 def atualizar_atividade(lista_de_atividades,indice_atividade,novo_nome_atividade):
     indice = int(indice_atividade) -1
@@ -24,6 +22,11 @@ def atualizar_atividade(lista_de_atividades,indice_atividade,novo_nome_atividade
             print("Numero de tarefa inexistente")
     return
 
+def completar_atividade(lista_de_atividades,indice_atividade):
+     indice = int(indice_atividade) -1
+     lista_de_atividades[indice]["completada"] = True
+     print(f"Atividade {indice_atividade} marcada como completada")
+     return
 
 lista_de_atividades = []
 
@@ -45,9 +48,16 @@ while True:
               ver_atividades(lista_de_atividades)
          case "3":
               ver_atividades(lista_de_atividades)
-              indice_atividade = input("Digite o número da atividade: ")
+              indice_atividade = input("Digite o número da atividade que deseja atualizar: ")
               novo_nome_atividade = input("Digite o novo nome da atividade: ")
               atualizar_atividade(lista_de_atividades=lista_de_atividades,indice_atividade=indice_atividade,novo_nome_atividade=novo_nome_atividade)
+         case "4":
+               ver_atividades(lista_de_atividades)
+               indice_atividade = input("Digite o número da atividade que deseja completar: ")
+               completar_atividade(indice_atividade=indice_atividade,lista_de_atividades=lista_de_atividades)
+         case "5":
+              ver_atividades(lista_de_atividades)
+              indice_atividade = input("Digite o número da atividade que deseja deletar: ")
          case "6":
               break
 
