@@ -28,6 +28,18 @@ def completar_atividade(lista_de_atividades,indice_atividade):
      print(f"Atividade {indice_atividade} marcada como completada")
      return
 
+def deletar_atividade(lista_de_atividades,indice_atividade):
+     indice = int(indice_atividade)
+     for indice_lista,atividade in enumerate(lista_de_atividades,start=1):
+          if indice_lista == indice:
+             removido = lista_de_atividades.remove(atividade)
+             print(f'Atividade {indice}  foi deletada')
+             ver_atividades(lista_de_atividades)
+             return
+          else:
+             print(f"Atividade {indice_atividade} não localizada")
+     return
+
 def deletar_atividades_completadas(lista_de_atividades):
      for atividade in lista_de_atividades:
           if atividade["completada"] == True:
@@ -44,8 +56,9 @@ while True:
     print("2. Ver Atividades")
     print("3. Atualizar Atividade")
     print("4. Completar Atividade")
-    print("5. Deletar tarefas completadas")
-    print("6. Sair")
+    print("5. Deletar Atividade")
+    print("6. Deletar Atividade completadas")
+    print("7. Sair")
 
     escolha = input("Digite a sua opção: ")
     match escolha: 
@@ -64,8 +77,12 @@ while True:
                indice_atividade = input("Digite o número da atividade que deseja completar: ")
                completar_atividade(indice_atividade=indice_atividade,lista_de_atividades=lista_de_atividades)
          case "5":
-              deletar_atividades_completadas(lista_de_atividades)
+              ver_atividades(lista_de_atividades)
+              indice_atividade = input("Digite o número da atividade que deseja deletar: ")
+              deletar_atividade(lista_de_atividades=lista_de_atividades,indice_atividade=indice_atividade)
          case "6":
+              deletar_atividades_completadas(lista_de_atividades)
+         case "7":
               break
 
 print("Programa finalizado")
